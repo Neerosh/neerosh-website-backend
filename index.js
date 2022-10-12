@@ -5,7 +5,6 @@ const cors = require('cors')
 require('dotenv').config()
 
 const resume = require('./api/resume/skills.js')
-
 const app = express();
 
 //middleware
