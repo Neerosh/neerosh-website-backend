@@ -13,7 +13,7 @@ app.use(cors());
 app.use('/api/resume', resume)
 app.use(express.static(__dirname + '/frontend/'));
 
-app.get('/.*/', (req, res) => res.sendFile(__dirname+ '/frontend/index.html'));
+app.get(/.*/, (req, res) => res.sendFile(__dirname+ '/frontend/index.html'));
 
 const port = process.env.PORT || 5000
 
