@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
         break;
       case 'POST':
         //createSkill(req,res)
+        res.status(404).send();
         break;
       default:
         res.status(404).send();
