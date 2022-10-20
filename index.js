@@ -4,16 +4,23 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 require('dotenv').config()
 
-const resume = require('./api/resume/skills.js')
+const resumeSkills = require('./api/resume/skills.js')
+const resumeExperiences = require('./api/resume/experiences.js')
 const app = express();
 
 //middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/api/resume', resume)
+app.use('/api/resume/skills', resumeSkills)
+app.use('/api/resume/experiences', resumeExperiences)
 app.use(express.static(__dirname + '/frontend/'));
 
-app.get(/.*/, (req, res) => res.sendFile(__dirname+ '/frontend/index.html'));
+app.get(/.*/, (req, res) => { 
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1
+  res.set('Pragma', 'no-cache') // HTTP 1.0
+  res.set('Expires', '0') // Proxies
+  res.sendFile(__dirname+ '/frontend/index.html')
+});
 
 const port = process.env.PORT || 5000
 
