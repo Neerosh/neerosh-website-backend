@@ -16,10 +16,7 @@ app.use('/api/resume/experiences', resumeExperiences)
 app.use(express.static(__dirname + '/frontend/'));
 
 app.get(/.*/, (req, res) => { 
-  res.set('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1
-  res.set('Pragma', 'no-cache') // HTTP 1.0
-  res.set('Expires', '0') // Proxies
-  res.sendFile(__dirname+ '/frontend/index.html')
+  res.sendFile(__dirname+ '/frontend/index.html',options)
 });
 
 const port = process.env.PORT || 5000
