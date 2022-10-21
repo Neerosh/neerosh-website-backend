@@ -16,7 +16,7 @@ app.use('/api/resume/experiences', resumeExperiences)
 app.use(express.static(__dirname + '/frontend/'));
 
 app.get(/.*/, (req, res) => { 
-  res.sendFile(__dirname+ '/frontend/index.html',options)
+  res.sendFile(__dirname+ '/frontend/index.html')
 });
 
 const port = process.env.PORT || 5000
