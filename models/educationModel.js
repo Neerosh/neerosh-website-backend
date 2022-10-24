@@ -2,25 +2,26 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const skillSchema = new Schema({
+const educationSchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  type: {
-    type: String,
-    required: true
-  },
-  level: {
-    type: String,
-    required: true
-  },
   description: {
-    type: String
+    type: String,
+    required: true
   },
-  tags:{
-    type: Array
+  location: {
+    type: String,
+    required: true
+  },
+  startDate: {
+    type: Date,
+    required: true
+  },
+  endDate: {
+    type: Date
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Skill', skillSchema, "skills")
+module.exports = mongoose.model('Education', educationSchema, "educations")
