@@ -1,4 +1,4 @@
-const ProfileModel = require('../models/ProfileModel.js')
+const ProfileModel = require('../models/profileModel.js')
 const { ObjectId } = require('mongodb'); 
 
 const getProfile = async (req,res) => {
