@@ -1,15 +1,15 @@
-const { createExperience, getExperiences } = require('../../controllers/experienceController')
+const { createUserEducation, getUserEducations } = require('../../controllers/userEducationController')
 const mongoose = require('mongoose')
 
 module.exports = async (req, res) => {
   mongoose.connect(process.env.MONGODB_URI).then(() =>{
     switch(req.method){
       case 'GET':
-        getExperiences(req,res)
+        getUserEducations(req,res)
         break;
-      //case 'POST':
-      //  createExperience(req,res)
-      //  break;
+      /*case 'POST':
+        createUserEducation(req,res)
+        break; */
       default:
         res.status(404).send();
     }

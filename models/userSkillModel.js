@@ -1,8 +1,17 @@
+const { ObjectId } = require('mongodb')
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const skillSchema = new Schema({
+const userSkillSchema = new Schema({
+  userId:{
+    type: ObjectId,
+    required: true
+  },
+  language: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -12,8 +21,7 @@ const skillSchema = new Schema({
     required: true
   },
   level: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
     type: String
@@ -23,4 +31,4 @@ const skillSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Skill', skillSchema, "skills")
+module.exports = mongoose.model('UserSkills', userSkillSchema, "usersSkills")
