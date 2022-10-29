@@ -13,10 +13,12 @@ const getUserBasic = async (req,res) => {
 
   if (req.query.language !== undefined){
     searchObject.language = req.query.language
+    const user = await UserBasicModel.findOne( searchObject )
+    res.status(200).json(user)
+    return
   }
 
   const user = await UserBasicModel.find( searchObject )
-
   res.status(200).json(user)
 }
 

@@ -6,7 +6,16 @@ const getUserSkills = async (req,res) => {
     res.status(400).json({"Error":"param userId not found."})
     return
   }
-  const skills = await UserSkillModel.find({userId: ObjectId(req.query.userId)}).sort({name: 1})
+
+  var searchObject = {
+    userId: ObjectId(req.query.userId)
+  }
+
+  if (req.query.language !== undefined){
+    searchObject.language = req.query.language
+  }
+
+  const skills = await UserSkillModel.find( searchObject ).sort({name: 1})
   res.status(200).json(skills)
 }
 
