@@ -5,7 +5,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const resumeProfile = require('./api/resume/user')
-const resumeUserBasic = require('./api/resume/userBasic')
+const resumeUserBasic = require('./api/resume/userInfo')
 const resumeSkills = require('./api/resume/userSkills')
 const resumeExperiences = require('./api/resume/userExperiences')
 const resumeEducations = require('./api/resume/userEducations')
@@ -14,7 +14,7 @@ const app = express();
 //middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/api/resume/user/basic',resumeUserBasic)
+app.use('/api/resume/user/info',resumeUserBasic)
 app.use('/api/resume/user/experiences', resumeExperiences)
 app.use('/api/resume/user/educations',resumeEducations)
 app.use('/api/resume/user/skills', resumeSkills)

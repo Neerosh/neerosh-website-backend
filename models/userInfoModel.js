@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const userBasicInfoSchema = new Schema({
+const userInfoSchema = new Schema({
   userId:{
     type: ObjectId,
     required: true
@@ -23,4 +23,4 @@ const userBasicInfoSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('UserBasic', userBasicInfoSchema, "usersBasics")
+module.exports = mongoose.model('UserInfo', userInfoSchema, "usersInfos")
