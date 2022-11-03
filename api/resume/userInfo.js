@@ -1,4 +1,4 @@
-const { createUserInfo, getUserInfo} = require('../../controllers/UserInfoController')
+const { createUserInfo, getUserInfo} = require('../../controllers/userInfoController')
 const mongoose = require('mongoose')
 
 module.exports = async (req, res) => {
