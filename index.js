@@ -23,7 +23,7 @@ app.use('/api/resume/user/educations',resumeEducations)
 app.use('/api/resume/user/skills', resumeSkills)
 app.use('/api/resume/user',resumeProfile)
 app.use('/api/project',projects)
-app.use('/frontend', express.static(__dirname+'/frontend'));
+app.use('/', express.static(__dirname+'/frontend'));
 
 app.get('*', (req, res) => { 
   res.sendFile(__dirname+ '/frontend/index.html')
