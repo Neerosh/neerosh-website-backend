@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 require('dotenv').config()
 
+const projects = require('./api/project')
 const resumeProfile = require('./api/resume/user')
 const resumeUserBasic = require('./api/resume/userInfo')
 const resumeSkills = require('./api/resume/userSkills')
@@ -19,6 +20,7 @@ app.use('/api/resume/user/experiences', resumeExperiences)
 app.use('/api/resume/user/educations',resumeEducations)
 app.use('/api/resume/user/skills', resumeSkills)
 app.use('/api/resume/user',resumeProfile)
+app.use('/api/project',projects)
 app.use(express.static(__dirname + '/frontend'));
 
 app.get(/.*/, (req, res) => { 
