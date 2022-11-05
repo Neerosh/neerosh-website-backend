@@ -1,15 +1,17 @@
-const express = require('express')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const express = require('express')
 const cors = require('cors')
+const mongoose = require('mongoose')
 require('dotenv').config()
 
+//API
 const projects = require('./api/project')
 const resumeProfile = require('./api/resume/user')
 const resumeUserBasic = require('./api/resume/userInfo')
 const resumeSkills = require('./api/resume/userSkills')
 const resumeExperiences = require('./api/resume/userExperiences')
 const resumeEducations = require('./api/resume/userEducations')
+
 const app = express();
 
 //middleware
