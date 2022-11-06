@@ -34,7 +34,7 @@ app.get('*', (req, res) => {
 
     }
   }
-  res.set({ "Cache-Control": "public, max-age=0, must-revalidate"});
+  res.set({ "Cache-Control": "no-cache, no-store, public, max-age=0, must-revalidate"});
   res.sendFile(__dirname+ '/frontend/index.html')
 });
 
