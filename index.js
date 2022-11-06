@@ -14,6 +14,12 @@ const resumeEducations = require('./api/resume/userEducations')
 
 const app = express();
 
+const options = {
+  headers:{
+    "Cache-Control": "no-cache, no-store, public, max-age=0, must-revalidate"
+  }
+}
+
 //middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -23,18 +29,10 @@ app.use('/api/resume/user/educations',resumeEducations)
 app.use('/api/resume/user/skills', resumeSkills)
 app.use('/api/resume/user',resumeProfile)
 app.use('/api/project',projects)
-app.use(express.static(__dirname+'/frontend'));
+app.use(express.static(__dirname+'/frontend',options));
 
 app.get('*', (req, res) => { 
-  const options = {
-    headers:{
-      "public": true,
-      "max-age": 0,
-      "must-revalidate": true,
-
-    }
-  }
-  res.set({ "Cache-Control": "no-cache, no-store, public, max-age=0, must-revalidate"});
+  res.set(options);
   res.sendFile(__dirname+ '/frontend/index.html')
 });
 
