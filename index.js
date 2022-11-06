@@ -26,6 +26,15 @@ app.use('/api/project',projects)
 app.use(express.static(__dirname+'/frontend'));
 
 app.get('*', (req, res) => { 
+  const options = {
+    headers:{
+      "public": true,
+      "max-age": 0,
+      "must-revalidate": true,
+
+    }
+  }
+  res.set({ "Cache-Control": "public, max-age=0, must-revalidate"});
   res.sendFile(__dirname+ '/frontend/index.html')
 });
 
