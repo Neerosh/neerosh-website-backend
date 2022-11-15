@@ -7,13 +7,13 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  phone: {
+  phones: {
     type: Array
   },
-  email:{
+  emails:{
     type: Array
   },
-  website:{
+  websites:{
     type: Array
   }
 }, { timestamps: true })
