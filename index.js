@@ -39,9 +39,9 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || 5000
 
 //connect to db 
-mongoose.connect(process.env.MONGODB_URI)
-.then(()=>{
+//mongoose.connect(process.env.MONGODB_URI)
+//.then(()=>{
   app.listen(port, () => console.log(`Server started on port ${port}`))
-}).catch((error) =>{
-  console.log(error)
-})
+//}).catch((error) =>{
+//  console.log(error)
+//})
