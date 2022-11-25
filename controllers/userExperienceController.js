@@ -1,5 +1,6 @@
 const UserExperienceModel = require('../models/userExperienceModel')
 const { ObjectId } = require('mongodb'); 
+const { excludeFields } = require('./commonVariables')
 
 const getUserExperiences = async (req,res) => {
   if (req.query.userId == undefined){
@@ -15,7 +16,7 @@ const getUserExperiences = async (req,res) => {
     searchObject.language = req.query.language
   }
 
-  const experiences = await UserExperienceModel.find( searchObject ).sort({startDate: 1})
+  const experiences = await UserExperienceModel.find( searchObject, excludeFields ).sort({startDate: 1})
   res.status(200).json(experiences)
 }
 

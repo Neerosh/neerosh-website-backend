@@ -20,6 +20,12 @@ const options = {
   }
 }
 
+var excludeFieldsSearch = {
+  __v: 0,
+  createdAt: 0,
+  updatedAt: 0,
+}
+
 //middleware
 app.use(bodyParser.json());
 app.use(cors());

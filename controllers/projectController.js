@@ -1,8 +1,8 @@
 const ProjectModel = require('../models/projectModel')
+const { excludeFields } = require('./commonVariables')
 
 const getProjects = async (req,res) => {
-
-  const projects = await ProjectModel.find()
+  const projects = await ProjectModel.find({},excludeFields)
   res.status(200).json(projects)
 }
 

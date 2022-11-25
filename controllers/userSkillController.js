@@ -1,5 +1,6 @@
 const UserSkillModel = require('../models/userSkillModel')
 const { ObjectId } = require('mongodb'); 
+const { excludeFields } = require('./commonVariables')
 
 const getUserSkills = async (req,res) => {
   if (req.query.userId == undefined){
@@ -15,7 +16,7 @@ const getUserSkills = async (req,res) => {
     searchObject.language = req.query.language
   }
 
-  const skills = await UserSkillModel.find( searchObject ).sort({name: 1})
+  const skills = await UserSkillModel.find( searchObject, excludeFields ).sort({name: 1})
   res.status(200).json(skills)
 }
 

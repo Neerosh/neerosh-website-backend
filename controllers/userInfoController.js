@@ -1,5 +1,6 @@
 const userInfoModel = require('../models/userInfoModel')
 const { ObjectId } = require('mongodb'); 
+const { excludeFields } = require('./commonVariables')
 
 const getUserInfo = async (req,res) => {
   if (req.query.userId == undefined){
@@ -13,7 +14,7 @@ const getUserInfo = async (req,res) => {
 
   if (req.query.language !== undefined){
     searchObject.language = req.query.language
-    const user = await userInfoModel.findOne( searchObject )
+    const user = await userInfoModel.findOne( searchObject, excludeFields)
     res.status(200).json(user)
     return
   }
