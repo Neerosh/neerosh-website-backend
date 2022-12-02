@@ -14,18 +14,6 @@ const resumeEducations = require('./api/resume/userEducations')
 
 const app = express();
 
-const options = {
-  headers:{
-    "Cache-Control": "no-cache, no-store, public, max-age=0, must-revalidate"
-  }
-}
-
-var excludeFieldsSearch = {
-  __v: 0,
-  createdAt: 0,
-  updatedAt: 0,
-}
-
 //middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -35,10 +23,9 @@ app.use('/api/resume/user/educations',resumeEducations)
 app.use('/api/resume/user/skills', resumeSkills)
 app.use('/api/resume/user',resumeProfile)
 app.use('/api/project',projects)
-app.use(express.static(__dirname+'/frontend',options));
+app.use(express.static(__dirname+'/frontend'));
 
-app.get('*', (req, res) => { 
-  res.set(options);
+app.get('*', (req, res) => {
   res.sendFile(__dirname+ '/frontend/index.html')
 });
 
