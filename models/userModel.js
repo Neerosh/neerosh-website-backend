@@ -15,6 +15,34 @@ const userSchema = new Schema({
   },
   websites:{
     type: Array
+  },
+  birthday:{
+    type: Date,
+    required: true
+  },
+  address:{
+    type: String,
+    required: true
+  },
+  addressCity:{
+    type: String,
+    required: true
+  },
+  addressCountry:{
+    type: String,
+    required: true
+  },
+  addressState:{
+    type: String,
+    required: true
+  },
+  addressNeighborhood:{
+    type: String,
+    required: true
+  },
+  addressNumber:{
+    type: Number,
+    required: true
   }
 }, { timestamps: true })
 

@@ -13,12 +13,12 @@ const getUser= async (req,res) => {
 
 const createUser = async (req,res) => {
   const {
-    fullname, phones, emails, websites
+    fullname, phones, emails, websites, birthdary, address, addressCity, addressCountry, addressNeighborhood, addressState, addressNumber
   } = req.body
     
   try{
     const user = await UserModel.create({
-      fullname, phones, emails, websites
+      fullname, phones, emails, websites, birthdary, address, addressCity, addressCountry, addressNeighborhood, addressState, addressNumber
     })
     res.status(200).json(user)
   }catch(err){
